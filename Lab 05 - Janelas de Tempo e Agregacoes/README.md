@@ -30,6 +30,7 @@ CREATE TEMPORARY TABLE transactions (
     'rows-per-second' = '5', -- Aumentamos para 5 transações por segundo
     'fields.transaction_id.kind' = 'sequence',
     'fields.transaction_id.start' = '1',
+    'fields.transaction_id.end' = '1000',
     'fields.amount.min' = '10.0',
     'fields.amount.max' = '1000.0'
 );

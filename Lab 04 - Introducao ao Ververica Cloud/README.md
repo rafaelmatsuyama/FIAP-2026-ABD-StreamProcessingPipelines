@@ -28,7 +28,7 @@ Um **Workspace** é o ambiente isolado onde seus jobs de Flink rodarão.
 2. Escolha um nome para seu workspace (ex: `fiap-30abd-data-eng-mba`).
 3. Selecione a região mais próxima de você (ex: `AWS - Europe (Frankfurt)`).
 4. Clique em **Create Workspace**.
-5. Aguarde alguns minutos até que o status mude para **Running** e clique no nome do Workspace para entrar no "Flink Management Console".
+5. Aguarde alguns segundos até que o status mude para **Running** e clique no nome do Workspace para entrar no "Flink Management Console".
 
 ---
 
