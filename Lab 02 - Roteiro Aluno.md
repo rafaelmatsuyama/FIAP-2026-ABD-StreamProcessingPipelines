@@ -63,7 +63,7 @@ df.printSchema()
 ```
 
 ### Passo 5: Transformações e Filtros
-1. **Filtragem de Registros:** Filtrar produtos por faixa de preço (`df.filter(df["preco"] > 100)`).
+1. **Filtragem de Registros:** Filtrar produtos por faixa de preço (`display(df.filter(df["preco"].cast("double") > 100))`).
 2. **Coluna Calculada:** Criar a coluna `valor_total_estoque` multiplicando `preco` por `quantidade`:
 
 ```python
