@@ -1,6 +1,6 @@
 # Lab 02 - Ingestão e Processamento Batch no Apache Spark (PySpark)
 
-**Disciplina:** Stream Processing & Pipelines  
+**Disciplina:** Stream Processing Pipelines  
 **Ambiente:** Databricks Free Edition ([login.databricks.com](https://login.databricks.com/))  
 **Linguagem:** Python / PySpark  
 
