@@ -118,10 +118,23 @@ GROUP BY window_start, window_end;
 
 ---
 
-## 🧹 Passo 5: Cleanup & Governança
+## 🧹 Passo 5: Cleanup e Limpeza do Ambiente
 
-1. Pare as queries ativas clicando em **Stop**.
-2. Quando finalizar as práticas de Flink, pause ou exclua os Compute Pools criados no Confluent Cloud para preservar seus créditos.
+Para garantir a organização do catálogo e preservar seus créditos promocionais:
+
+### 5.1 Parar as Queries Contínuas
+1. No SQL Workspace, pare a execução de qualquer query de agregação/janela clicando em **Stop**.
+
+### 5.2 Remoção da Tabela Geradora (DROP TABLE)
+No editor do SQL Workspace, execute a instrução DDL de remoção:
+
+```sql
+-- 5. Limpeza do catálogo de tabelas Flink
+DROP TABLE IF EXISTS transactions_stream;
+```
+
+### 5.3 Gestão do Flink Compute Pool
+1. **Importante:** **Mantenha o seu Cluster Kafka ativo** (não o remova), pois ele será utilizado no **Lab 09** (Joins e Enriquecimento).
 
 ---
 
@@ -131,6 +144,7 @@ Você concluiu este laboratório com sucesso se:
 1. Criou a tabela `transactions_stream` com taxa de 5 registros/segundo.
 2. Executou a Tumbling Window e compreendeu o tempo de espera condicionado ao `WATERMARK`.
 3. Executou a Hop Window e visualizou a emissão com janelas sobrepostas.
+4. Executou o `DROP TABLE` e encerrou as queries para limpeza do ambiente.
 
 ---
 **Próximo Passo:** No Lab 09, aprenderemos como realizar **Joins em Tempo Real** entre streams dinâmicos e tabelas dimensionais de referência (*Stream-Table Joins*).

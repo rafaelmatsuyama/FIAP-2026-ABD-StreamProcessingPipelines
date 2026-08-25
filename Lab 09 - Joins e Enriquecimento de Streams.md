@@ -120,10 +120,25 @@ WHERE t.user_id IN (1, 4, 8);
 
 ---
 
-## 🧹 Passo 5: Cleanup & Governança
+## 🧹 Passo 5: Cleanup e Limpeza do Ambiente
+ 
+Para garantir a organização do catálogo e finalizar o consumo de recursos na nuvem:
 
-1. Pare as queries ativas clicando em **Stop**.
-2. Ao encerrar a sessão de estudos, pause ou exclua os Flink Compute Pools no Confluent Cloud para preservar seus créditos promocionais.
+### 5.1 Parar as Queries Contínuas
+1. No SQL Workspace, pare a execução do `JOIN` contínuo clicando no botão **Stop**.
+
+### 5.2 Remoção das Tabelas (DROP TABLE)
+No editor do SQL Workspace, execute as instruções DDL de remoção para as duas tabelas criadas:
+
+```sql
+-- 5. Limpeza do catálogo de tabelas Flink
+DROP TABLE IF EXISTS transactions_join_stream;
+DROP TABLE IF EXISTS users_reference;
+```
+
+### 5.3 Encerramento da Infraestrutura no Confluent Cloud
+Como este é o último laboratório prático de Apache Flink / Confluent Cloud:
+1. **Excluir o Cluster Kafka & Environment (Opcional/Recomendado):** Caso não vá utilizar o cluster para outros projetos pessoais, acesse as configurações do cluster -> **Delete Cluster** e, em seguida, delete o Environment para zerar qualquer consumo residual de créditos da conta.
 
 ---
 
@@ -133,6 +148,7 @@ Você concluiu este laboratório com sucesso se:
 1. Criou as tabelas `transactions_join_stream` e `users_reference`.
 2. Executou o `LEFT JOIN` contínuo visualizando os dados de transações enriquecidos com os nomes e níveis de fidelidade dos usuários.
 3. Aplicou filtros relacionais com sucesso para isolar transações de categorias específicas.
+4. Executou o `DROP TABLE` das tabelas de stream e referência e concluiu o cleanup do ambiente.
 
 ---
 **Próximo Passo:** No próximo módulo, exploraremos o ecossistema de streaming na nuvem com **AWS Kinesis Data Streams e Data Pipelines**.

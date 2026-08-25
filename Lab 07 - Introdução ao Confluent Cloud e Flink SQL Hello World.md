@@ -95,11 +95,23 @@ SELECT * FROM transactions;
 
 ---
 
-## 🧹 Passo 5: Boas Práticas & Cleanup
+## 🧹 Passo 5: Cleanup e Limpeza do Ambiente
 
-Para garantir o melhor aproveitamento dos seus créditos promocionais:
-1. No SQL Workspace, pare a execução da query clicando em **Stop**.
-2. Caso não vá realizar outros exercícios de Flink imediatamente, acesse os Compute Pools vinculados e pause/exclua o pool criado.
+Para garantir a organização do catálogo e o melhor aproveitamento dos seus créditos promocionais:
+
+### 5.1 Parar a Query Contínua
+1. No SQL Workspace, pare a execução da query `SELECT * FROM transactions` clicando em **Stop**.
+
+### 5.2 Remoção da Tabela Geradora (DROP TABLE)
+No editor do SQL Workspace, execute a instrução DDL de remoção:
+
+```sql
+-- 3. Limpeza do catálogo de tabelas Flink
+DROP TABLE IF EXISTS transactions;
+```
+
+### 5.3 Gestão do Flink Compute Pool
+1. **Importante:** **Mantenha o seu Cluster Kafka ativo** (não o remova), pois ele será reutilizado nos próximos laboratórios (Lab 08 e Lab 09).
 
 ---
 
@@ -109,6 +121,7 @@ Você concluiu este laboratório se:
 1. Criou sua conta e ativou o cluster e o Flink Compute Pool no Confluent Cloud.
 2. Executou com sucesso a criação da tabela `transactions` com `faker` e `WATERMARK`.
 3. Visualizou os registros fluindo em tempo real no console de resultados do Flink SQL Workspace.
+4. Executou o `DROP TABLE` e parou o stream para limpeza do ambiente.
 
 ---
 **Próximo Passo:** No Lab 08, exploraremos agregações temporais contínuas utilizando **Janelas de Tempo (Tumbling e Sliding Windows)** no Flink SQL.
