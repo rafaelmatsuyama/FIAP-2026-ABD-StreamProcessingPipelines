@@ -83,6 +83,9 @@ query_bronze = (
         .trigger(availableNow=True)
         .start(path_bronze)
 )
+
+query_bronze.awaitTermination()
+print("Camada Bronze processada com sucesso!")
 ```
 
 ### Passo 4: Camada SILVER (Leitura do Stream Bronze $\rightarrow$ Transformação $\rightarrow$ Delta Silver)
@@ -111,6 +114,9 @@ query_silver = (
         .trigger(availableNow=True)
         .start(path_silver)
 )
+
+query_silver.awaitTermination()
+print("Camada Silver processada com sucesso!")
 ```
 
 ### Passo 5: Validação do Pipeline Medallion via SQL
